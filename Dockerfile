@@ -35,3 +35,5 @@ RUN apt-get -qq update \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
+CMD ["bash"]
+
