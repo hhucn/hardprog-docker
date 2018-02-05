@@ -17,3 +17,7 @@ In diesem Beispiel wird mit `-v` das aktuelle Verzeichnis (`"$PWD"`) auf `/data`
 Die Syntax für einen allgemeinen lokalen Pfad lautet demnach:
 
     docker run -it -v <path/to/workdir>:/data -w /data hardprog
+
+Dateien, die innerhalb des Containers erzeugt werden, gehören dem root-User des Containers. Mit `-u $(id -u):$(id -g)` kann dies manipuliert werden. Beispiel:
+
+    docker run -it -u $(id -u):$(id -g) -v "$PWD":/data -w /data hardprog
