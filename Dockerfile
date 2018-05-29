@@ -22,18 +22,24 @@ RUN apt-get -qq update \
         indent \
         libaio1 \
         libc6-dev \
+        ltrace \
         make \
         manpages-dev \
+        nano \
         nasm \
+        pkg-config \
         rcs \
         screen \
-        strace ltrace \
-        subversion \
+        strace \
         valgrind \
         unzip \
-        zip \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
-CMD ["bash"]
+COPY alias.sh /alias.sh
+RUN bash -x /alias.sh \
+ && rm /alias.sh
 
+WORKDIR /data
+
+CMD ["bash"]
