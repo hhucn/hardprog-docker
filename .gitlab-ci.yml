@@ -1,9 +1,15 @@
-image: docker
-
 build_image:
   stage: build
+  image: docker
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker build -t $CI_REGISTRY_IMAGE .
     - docker push $CI_REGISTRY_IMAGE
 
+mirror_to_github:
+  stage: deploy
+  image: alpine/git
+  variables:
+    GIT_SSH_COMMAND: "ssh -i <(echo $TOGITHUB)"
+  script:
+    - git push -u git@github.com:hhucn/hardprog-docker.git master
