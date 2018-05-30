@@ -17,4 +17,5 @@ mirror_to_github:
     - chmod 600 /root/.ssh/id_rsa
     - ssh-keyscan github.com > /root/.ssh/known_hosts
     - git fetch
-    - git push -u git@github.com:hhucn/hardprog-docker.git master
+    - git push -u git@github.com:hhucn/hardprog-docker.git $CI_COMMIT_REF_NAME || true
+    - git push -u -f git@github.com:hhucn/hardprog-docker.git $CI_COMMIT_SHA:$CI_COMMIT_REF_NAME
