@@ -16,4 +16,5 @@ mirror_to_github:
     - echo "$TOGITHUB" > /root/.ssh/id_rsa
     - chmod 600 /root/.ssh/id_rsa
     - ssh-keyscan github.com > /root/.ssh/known_hosts
+    - git fetch
     - git push -u git@github.com:hhucn/hardprog-docker.git master
