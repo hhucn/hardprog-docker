@@ -12,4 +12,5 @@ mirror_to_github:
   variables:
     GIT_SSH_COMMAND: "ssh -i <(echo $TOGITHUB)"
   script:
-    - git push -u git@github.com:hhucn/hardprog-docker.git master
+    - apk --no-cache add bash
+    - /bin/bash -c "git push -u git@github.com:hhucn/hardprog-docker.git master"
