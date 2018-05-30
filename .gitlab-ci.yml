@@ -8,9 +8,12 @@ build_image:
 
 mirror_to_github:
   stage: deploy
-  image: alpine/git
+  image: alpine
   variables:
     GIT_SSH_COMMAND: "ssh -i <(echo $TOGITHUB)"
   script:
-    - apk --no-cache add bash
-    - /bin/bash -c "git push -u git@github.com:hhucn/hardprog-docker.git master"
+    - apk --no-cache add git openssh
+    - mkdir -p /root/.ssh
+    - chmod 600 /root/.ssh
+    - echo "$TOGITHUB" > /root/.ssh/id_rsa
+    - git push -u git@github.com:hhucn/hardprog-docker.git master
