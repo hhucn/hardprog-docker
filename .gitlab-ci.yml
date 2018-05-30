@@ -9,8 +9,6 @@ build_image:
 mirror_to_github:
   stage: deploy
   image: alpine
-  variables:
-    GIT_SSH_COMMAND: "ssh -i <(echo $TOGITHUB)"
   script:
     - apk --no-cache add git openssh
     - mkdir -p /root/.ssh
