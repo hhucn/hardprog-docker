@@ -26,6 +26,10 @@ kann dies manipuliert werden. Beispiel:
 
     docker run -it -u $(id -u):$(id -g) -v "$PWD":/data -w /data hardprog-image
 
+Um GDB zu nutzen müssen diese beiden Optionen gesetzt werden. (Sonst bekommt man Probleme mit Adressrandomisierung)
+
+    --cap-add=SYS_PTRACE --security-opt seccomp=unconfined
+
 Die beiliegende run.sh kann ausgeführt werden, um den docker-Container zu starten.
 Mit
 
