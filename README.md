@@ -11,6 +11,7 @@ Im Ordner, in welchem sich das Dockerfile befindet muss folgender Befehl ausgefÃ
 
 > **Achtung!** Hier wird das `hardprog-image` Image verwendet, welches im ersten Schritt gebaut worden ist. 
 > Sie kÃ¶nnen auch das Image [hhucn/hardprog](https://hub.docker.com/r/hhucn/hardprog) benutzen in dem Fall ersetzen Sie `hardprog-image` mit `hhucn/hardprog`.
+> Eine Anleitung finden Sie auch nocheinmal hier: https://pad.hhu.de/s/SkrXLhuKN
 
 Danach kann ein Container erzeugt werden:
 
