@@ -6,6 +6,12 @@ Im Ordner, in welchem sich das Dockerfile befindet muss folgender Befehl ausgef√
 
     docker build -t hardprog-image .
 
+## Docker-Image laufen lassen
+
+
+> **Achtung!** Hier wird das `hardprog-image` Image verwendet, welches im ersten Schritt gebaut worden ist. 
+> Sie k√∂nnen auch das Image [hhucn/hardprog](https://hub.docker.com/r/hhucn/hardprog) benutzen in dem Fall ersetzen Sie `hardprog-image` mit `hhucn/hardprog`.
+
 Danach kann ein Container erzeugt werden:
 
     docker run -it -v "$PWD":/data -w /data hardprog-image
